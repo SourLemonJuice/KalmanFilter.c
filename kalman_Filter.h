@@ -31,25 +31,25 @@ typedef struct
 
 // function prototypes
 // init
-void kalmanFilter_Init(kalman_Filter_t *filterD);
+void kalman_init(kalman_Filter_t *filterD);
 
 // The angle should be in degrees and the rate should be in degrees per second and the delta time in seconds
-float kalmanFilter_GetAngle(kalman_Filter_t *filterD, float newAngle, float newRate, float dt);
+float kalman_getAngle(kalman_Filter_t *filterD, float newAngle, float newRate, float dt);
 
-void kalmanFilter_SetAngle(kalman_Filter_t *filterD, float angle); // Used to set angle, this should be set as the starting angle
-float kalmanFilter_GetRate(kalman_Filter_t *filterD); // Return the unbiased rate
+void kalman_setAngle(kalman_Filter_t *filterD, float angle); // Used to set angle, this should be set as the starting angle
+float kalman_getRate(kalman_Filter_t *filterD); // Return the unbiased rate
 
 /* These are used to tune the Kalman filter */
-void kalmanFilter_SetQangle(kalman_Filter_t *filterD, float Q_angle);
+void kalman_setQangle(kalman_Filter_t *filterD, float Q_angle);
 /**
  * setQbias(float Q_bias)
  * Default value (0.003f) is in Kalman.cpp. 
  * Raise this to follow input more closely,
  * lower this to smooth result of kalman filter.
  */
-void kalmanFilter_SetQbias(kalman_Filter_t *filterD, float Q_bias);
-void kalmanFilter_SetRmeasure(kalman_Filter_t *filterD, float R_measure);
+void kalman_setQbias(kalman_Filter_t *filterD, float Q_bias);
+void kalman_setRmeasure(kalman_Filter_t *filterD, float R_measure);
 
-float kalmanFilter_GetQangle(kalman_Filter_t *filterD);
-float kalmanFilter_GetQbias(kalman_Filter_t *filterD);
-float kalmanFilter_GetRmeasure(kalman_Filter_t *filterD);
+float kalman_getQangle(kalman_Filter_t *filterD);
+float kalman_getQbias(kalman_Filter_t *filterD);
+float kalman_getRmeasure(kalman_Filter_t *filterD);

@@ -1,4 +1,4 @@
-# KalmanFilter.C
+# KalmanFilter.c
 
 ## 1.Developers
 
@@ -16,7 +16,7 @@ Code is released under the GNU General Public License v3.0 or later(GPL-3.0-or-l
 A modified version of [TKJElectronics/KalmanFilter](https://github.com/TKJElectronics/KalmanFilter)\
 Tried to support c lang even though my c levels are pretty poor.
 
-The functions' usage remains unchanged, but each call required that a pointer to a data structure be provided to them.
+The functions' usage remains unchanged, but each call required that a pointer to a data structure `kalman_Filter_t` be provided to them.
 
 And, it is not used for the Arduino library.
 

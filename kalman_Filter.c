@@ -16,7 +16,7 @@
 
 #include "kalman_Filter.h"
 
-void kalmanFilter_Init(kalman_Filter_t *filterD)
+void kalman_init(kalman_Filter_t *filterD)
 {
     /* We will set the variables like so, these can also be tuned by the user */
     filterD->Q_angle = 0.001f;
@@ -33,7 +33,7 @@ void kalmanFilter_Init(kalman_Filter_t *filterD)
 }
 
 // The angle should be in degrees and the rate should be in degrees per second and the delta time in seconds
-float kalmanFilter_GetAngle(kalman_Filter_t *filterD, float newAngle, float newRate, float dt) {
+float kalman_getAngle(kalman_Filter_t *filterD, float newAngle, float newRate, float dt) {
     // KasBot V2  -  Kalman filter module - http://www.x-firm.com/?page_id=145
     // Modified by Kristian Lauszus
     // See my blog post for more information: http://blog.tkjelectronics.dk/2012/09/a-practical-approach-to-kalman-filter-and-how-to-implement-it
@@ -80,14 +80,14 @@ float kalmanFilter_GetAngle(kalman_Filter_t *filterD, float newAngle, float newR
     return filterD->angle;
 };
 
-void kalmanFilter_SetAngle(kalman_Filter_t *filterD, float angle) { filterD->angle = angle; }; // Used to set angle, this should be set as the starting angle
-float kalmanFilter_GetRate(kalman_Filter_t *filterD) { return filterD->rate; }; // Return the unbiased rate
+void kalman_setAngle(kalman_Filter_t *filterD, float angle) { filterD->angle = angle; }; // Used to set angle, this should be set as the starting angle
+float kalman_getRate(kalman_Filter_t *filterD) { return filterD->rate; }; // Return the unbiased rate
 
 /* These are used to tune the Kalman filter */
-void kalmanFilter_SetQangle(kalman_Filter_t *filterD, float Q_angle) { filterD->Q_angle = Q_angle; };
-void kalmanFilter_SetQbias(kalman_Filter_t *filterD, float Q_bias) { filterD->Q_bias = Q_bias; };
-void kalmanFilter_SetRmeasure(kalman_Filter_t *filterD, float R_measure) { filterD->R_measure = R_measure; };
+void kalman_setQangle(kalman_Filter_t *filterD, float Q_angle) { filterD->Q_angle = Q_angle; };
+void kalman_setQbias(kalman_Filter_t *filterD, float Q_bias) { filterD->Q_bias = Q_bias; };
+void kalman_setRmeasure(kalman_Filter_t *filterD, float R_measure) { filterD->R_measure = R_measure; };
 
-float kalmanFilter_GetQangle(kalman_Filter_t *filterD) { return filterD->Q_angle; };
-float kalmanFilter_GetQbias(kalman_Filter_t *filterD) { return filterD->Q_bias; };
-float kalmanFilter_GetRmeasure(kalman_Filter_t *filterD) { return filterD->R_measure; };
+float kalman_getQangle(kalman_Filter_t *filterD) { return filterD->Q_angle; };
+float kalman_getQbias(kalman_Filter_t *filterD) { return filterD->Q_bias; };
+float kalman_getRmeasure(kalman_Filter_t *filterD) { return filterD->R_measure; };
